@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ah Kim Pech - Inventario</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <h1>Servicios Ópticos</h1>
+            <h2>Ah Kim Pech</h2>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="inventario.html">Inventario</a></li>
+                <li><a href="ventas.html">Ventas</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="#" id="logoutBtn">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Inventario</h2>
+        <div class="actions">
+            <button id="addInventoryBtn" class="btn-primary">Agregar producto</button>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar...">
+                <button class="btn-secondary">Buscar</button>
+            </div>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID Inventario</th>
+                    <th>ID Armazón</th>
+                    <th>ID Producto</th>
+                    <th>Fecha de entrada</th>
+                    <th>Piezas</th>
+                    <th>Precio de venta</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryTableBody">
+                <!-- Datos se cargarán dinámicamente -->
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Modal para agregar/editar inventario -->
+    <div id="inventoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Agregar Producto al Inventario</h3>
+            <form id="inventoryForm">
+                <input type="hidden" id="inventoryId">
+                <div class="form-group">
+                    <label for="armazonId">ID Armazón</label>
+                    <select id="armazonId" required>
+                        <!-- Opciones se cargarán dinámicamente -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productoId">ID Producto</label>
+                    <select id="productoId" required>
+                        <!-- Opciones se cargarán dinámicamente -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fechaEntrada">Fecha de entrada</label>
+                    <input type="date" id="fechaEntrada" required>
+                </div>
+                <div class="form-group">
+                    <label for="piezas">Número de piezas</label>
+                    <input type="number" id="piezas" required>
+                </div>
+                <div class="form-group">
+                    <label for="precioVenta">Precio de venta</label>
+                    <input type="number" step="0.01" id="precioVenta" required>
+                </div>
+                <button type="submit" class="btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/inventory.js"></script>
+</body>
+</html>

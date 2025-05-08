@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ah Kim Pech - Clientes</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <h1>Servicios Ópticos</h1>
+            <h2>Ah Kim Pech</h2>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="inventario.html">Inventario</a></li>
+                <li><a href="ventas.html">Ventas</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="#" id="logoutBtn">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Clientes</h2>
+        <div class="actions">
+            <button id="addClientBtn" class="btn-primary">Nuevo cliente</button>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar cliente...">
+                <button class="btn-secondary">Buscar</button>
+            </div>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID Cliente</th>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Última visita</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="clientsTableBody">
+                <!-- Datos se cargarán dinámicamente -->
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Modal para nuevo cliente -->
+    <div id="clientModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Nuevo Cliente</h3>
+            <form id="clientForm">
+                <input type="hidden" id="clientId">
+                <div class="form-group">
+                    <label for="clientName">Nombre completo</label>
+                    <input type="text" id="clientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">Teléfono</label>
+                    <input type="tel" id="clientPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail">Email</label>
+                    <input type="email" id="clientEmail">
+                </div>
+                <div class="form-group">
+                    <label for="clientAddress">Dirección</label>
+                    <textarea id="clientAddress" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="clientBirthdate">Fecha de nacimiento</label>
+                    <input type="date" id="clientBirthdate">
+                </div>
+                <button type="submit" class="btn-primary">Guardar cliente</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para tarjeta de cliente -->
+    <div id="clientCardModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <span class="close">&times;</span>
+            <h3>Tarjeta de Cliente</h3>
+            <div class="client-card">
+                <div class="client-info">
+                    <h4 id="cardClientName">Juan Pérez</h4>
+                    <p><strong>Teléfono:</strong> <span id="cardClientPhone">555-1234</span></p>
+                    <p><strong>Email:</strong> <span id="cardClientEmail">juan@example.com</span></p>
+                    <p><strong>Dirección:</strong> <span id="cardClientAddress">Calle 123, Ciudad</span></p>
+                    <p><strong>Fecha nacimiento:</strong> <span id="cardClientBirthdate">15/05/1985</span></p>
+                </div>
+                <div class="client-history">
+                    <h4>Historial de compras</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientHistoryBody">
+                            <!-- Datos se cargarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="client-actions">
+                    <button class="btn-primary" id="printCardBtn">Imprimir tarjeta</button>
+                    <button class="btn-secondary" id="closeCardBtn">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/clients.js"></script>
+</body>
+</html>
